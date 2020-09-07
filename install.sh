@@ -12,6 +12,7 @@ bash setups/polybar.sh
 bash setups/zsh.sh
 bash setups/vim.sh
 
+cp -r ~/dotfiles/Wallpapers ~/Pictures/
 ln -s ~/dotfiles/scripts ~/.scripts
 
 bash setups/gtk.sh
