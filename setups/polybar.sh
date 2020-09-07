@@ -2,15 +2,15 @@
 sudo pacman -S cmake pkg-config libxcb xcb-proto
 
 #Download polybar
-git clone --recursive https://github.com/polybar/polybar
-cd polybar
+git clone --recursive https://github.com/polybar/polybar polybarinstall
+cd polybarinstall
 mkdir build
 cd build
 cmake ..
 make -j$(nproc)
 sudo make install
 cd ../..
-rm -rf polybar
+rm -rf polybarinstall
 
 #Install media control
 sudo pacman -S mpc dbus
