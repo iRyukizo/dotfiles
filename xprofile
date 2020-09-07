@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# setup keyboards layout
+setxkbmap -layout fr
