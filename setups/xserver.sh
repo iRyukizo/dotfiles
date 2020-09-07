@@ -10,7 +10,7 @@ rm ~/.Xresources
 ln -s ~/dotfiles/Xresources ~/.Xresources
 
 # Install Xresources-themes
-git clone git@github.com:logico-dev/Xresources-themes.git ~/.Xresources-themes
+git clone https://github.com/logico-dev/Xresources-themes.git ~/.Xresources-themes
 
 # Link Xclients
 ln -s ~/dotfiles/Xclients ~/.Xclients
