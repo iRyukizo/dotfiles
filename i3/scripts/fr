@@ -1,0 +1,6 @@
+setxkbmap fr
+
+cp ~/.config/i3/configfr ~/.config/i3/config
+
+i3 restart
+sleep 1

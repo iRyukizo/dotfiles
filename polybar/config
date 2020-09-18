@@ -60,8 +60,7 @@ font-3 = Font Awesome 5 Brands:style=Regular:size=10;4
 modules-left = i3
 modules-center = battery backlight pulseaudio
 ; spotify previous playpause next
-modules-right = cpu-info memory-info wlan eth custom-date
-; ibus_keyboard
+modules-right = cpu-info memory-info wlan eth custom-date xkeyboard
 
 tray-position = right
 tray-padding = 2
