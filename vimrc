@@ -40,6 +40,8 @@ Plugin 'skielbasa/vim-material-monokai'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'kana/vim-operator-user'
+Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,10 +52,10 @@ filetype plugin indent on
 set number
 set smartindent
 set autoindent
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
-"set softtabstop=4
-"set expandtab
+set softtabstop=4
+set expandtab
 set smarttab
 set list
 set cc=80
@@ -76,6 +78,25 @@ set mouse=a
 
 set background=dark
 set t_Co=16
+
+" Set ultisnips triggers
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:snips_author="iRyukizo"
+
+" Set Clang-Format
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+autocmd FileType c,cpp set comments+=s0:/*,mb:**,ex:*/
+
+" Set NerdTreeToggle
+map <C-n> :NERDTreeToggle <CR>
+
+" Change comment highlight
+" augroup nord-overrides
+"   autocmd!
+"   autocmd ColorScheme nord highlight Comment ctermfg=6f7d98 guifg=#6d7a96
+" augroup END
 
 colorscheme nord
 
