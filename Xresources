@@ -25,7 +25,8 @@ Xft.lcdfilter: lcddefault
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                       0
 
-URxvt.font:                         xft:MesloLGM Nerd Font:style=Regular:size=7
+!URxvt.font:                         xft:MesloLGS Nerd Font:style=Regular:size=7
+URxvt.font:                         xft:MesloLGS NF:size=7
 
 URxvt.depth:                        20
 !URxvt.background:                   [100]#222D31
@@ -67,7 +68,7 @@ URxvt.shading:		15
 
 !! Copy Paste & Other Extensions
 urxvt*perl-lib: /usr/lib/urxvt/perl/
-URxvt.perl-ext-common: default,matcher,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common: default,matcher,clipboard,url-select,keyboard-select,font-size
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.keysym.M-c: perl:clipboard:copy
@@ -76,10 +77,14 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-launcher: /usr/bin/google-chrome
-URxvt.urlLauncher: /usr/bin/google-chrome
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.urlLauncher: /usr/bin/firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
 URxvt.keyboard-select.clipboard: true
 urxvt*matcher.button: 1
 urxvt*matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+URxvt.keysym.M-plus: perl:font-increase
+URxvt.keysym.M-minus: perl:font-decrease
+URxvt.keysym.M-equal: perl:font-reset
