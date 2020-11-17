@@ -23,10 +23,14 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec ~/.scripts/system_status/volumeControl.sh up
+bindsym XF86AudioLowerVolume exec ~/.scripts/system_status/volumeControl.sh down
+bindsym XF86AudioMute exec ~/.scripts/system_status/volumeControl.sh mute
+bindsym XF86AudioMicMute exec ~/.scripts/system_status/micControl.sh mute
 
 # media controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -112,13 +116,13 @@ bindsym $mod+q focus parent
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
+set $ws4 "4:"
+set $ws5 "5:"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10:"
 
 # switch to workspace
 bindsym $mod+ampersand workspace number $ws1
@@ -157,6 +161,8 @@ exec_always --no-startup-id feh --no-fehbg --bg-scale '/home/ryuki/Pictures/Wall
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xautolock -time 10 -locker blurlock
+
+exec --no-startup-id dockd --daemon
 
 # Start Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -240,9 +246,11 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 ####bindsym $mod+m bar mode toggle
 
 # Assign 
-assign [class="firefox"] $ws2
+# assign [class="firefox"] $ws2
+assign [class="Thunderbird"] $ws4
+assign [class="discord"] $ws5
 
-exec /usr/bin/urxvt
+exec --no-startup-id pkill dunst; dunst -conf ~/.dunstrc
 exec firefox
 
 #Launch firefox
